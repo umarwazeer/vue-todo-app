@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue js practice</title>
+    <script src="https://unpkg.com/vue@3.2.37/dist/vue.global.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+</head>
+<style scoped >
+body{
+    margin: 0%;
+    padding: 0%;
+}
+h1{
+    text-align: center;
+    margin-top: 0;
+    align-items: center;
+    color: aqua;
+    background-color: black;
+}
+#app{
+    align-items: center;
+    margin-left: 50px;
+    max-width: 500px;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    border: 3px solid rgb(39, 109, 189);
+    border-radius: 10px ;
+    padding: 20px;
+    margin:auto;
+    /* overflow-y: scroll; */
+
+    
+}
+.section1{
+    display: flex;
+}
+#btn button{
+    padding: 10px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(9, 100, 204);
+    border: none;
+    margin: 20px;
+    font-size: 18px;
+    border-radius: 5px ;
+    
+}
+input{
+     width: 350px;
+     color: rgb(53, 50, 50);
+     font-size: large;
+     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+     padding: 10px;
+}
+
+#addbtn{
+    padding: 12px 15px;
+    border:none;
+    margin-left:5px;
+    color: white;
+    font-size:large;
+    border-radius: 5px;
+    font-weight: 200;
+    background-color: rgb(24, 136, 211);
+
+
+
+}
+#addbtn:hover{
+    background-color:  rgb(14, 116, 184);
+    padding: 12px 16px;
+    font-size: 18px;
+}
+
+#clearbtn{
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 200px;
+    color: white;
+    background-color: chocolate;
+    border: none;
+
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+#clearbtn{
+    float:left;
+    margin-top: 10px;
+
+}
+
+
+
+.section3 ul{
+    padding-left: 30px;
+    display:inline-block;
+    text-align: left;
+    padding-left: 20px;
+
+}
+
+.section3 ul li{
+    text-decoration: none;
+    /* font-size: larger; */
+    font-weight: 300px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display:inline-block;
+    /* padding: 5px 10px; */
+    /* margin: 1% 5%; */
+    background-color: rgb(213, 213, 221);
+    padding: auto;
+    width: 350px;
+    max-height: 100px;
+
+}
+
+.itembtn{
+    height: 2.8rem;
+    padding: 10px 20px;
+    border: none;
+    font-size: 17px;
+    color: white;
+
+    
+}
+
+#delbtn{
+    background-color: chocolate;
+}
+
+#updatebtn{
+    background-color: rgb(24, 136, 211);
+}
+.text{
+    max-height: 1.5rem;
+    padding: 0.7rem;
+    width: 300px;
+}
+</style>
+<body>
+    <h1>Vue To Do App </h1>
+    <div id="app" >
+        <div class="section1">
+            <input type="text" v-model="item" placeholder="Add New Task" />
+            <button id="addbtn" @click="addItem"> + Add</button>
+        </div>
+
+        <div>
+            <button id="clearbtn" v-if="items[0]" @click="clear">Clear All</button>
+        </div>
+
+        <div class="section3">
+            <ul v-for="(item, index) in items">
+                <li>
+                  <div class="text">  {{item}}   </div>
+                
+                </li>
+                <button class="itembtn" id="delbtn" src="dellogo.png" @click="del(index)">  <i class="fa fa-trash"></i></button>
+                <button class="itembtn" id="updatebtn" @click="update(index)"> <i class="fa fa-edit"></i> </button>
+            </ul>
+
+        </div>
+    </div>
+
+    
+</body>
+<script src="app.js"></script>
+</html>
